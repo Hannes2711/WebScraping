@@ -19,7 +19,13 @@ public class ZadServiceFacade {
 	private BafinController controller;
 
 	@RequestMapping("/zadcompanies")
-	public List<BafinCompany> greeting() {
+	public List<BafinCompany> getCompanies() {
 		return controller.getCompanies();
 	}
+
+	@RequestMapping("/peter")
+	public String halloPeter() {
+		return "sagt hallo!";
+	}
+
 }
