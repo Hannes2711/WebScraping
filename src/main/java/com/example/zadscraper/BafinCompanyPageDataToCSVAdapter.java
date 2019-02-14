@@ -10,6 +10,9 @@ import java.util.*;
  * Copyright 2019 by Star Finanz-Software Entwicklungs und Vertriebs GmbH
  * Created on 2019-02-12
  */
+
+// Ertstellt aus dem Objekt eine Liste mit dem Namen, dem K-Datum und dem Z-Datum
+
 public class BafinCompanyPageDataToCSVAdapter {
 
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
@@ -36,10 +39,10 @@ public class BafinCompanyPageDataToCSVAdapter {
 
 			if (StringUtils.isNotBlank(name)) {
 				lines.add(line);
+
 			}
 		}
-
-		return lines;
+			return lines;
 	}
 
 }

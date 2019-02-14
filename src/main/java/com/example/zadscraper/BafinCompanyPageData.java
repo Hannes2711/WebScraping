@@ -7,6 +7,9 @@ import java.util.*;
  * Copyright 2019 by Star Finanz-Software Entwicklungs und Vertriebs GmbH
  * Created on 2019-02-12
  */
+
+// Erstellt das Objekt, in dem die Daten temporär gespeichert werden
+
 public class BafinCompanyPageData {
 
 	private String companyName = null;

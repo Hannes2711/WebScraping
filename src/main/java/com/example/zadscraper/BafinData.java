@@ -1,6 +1,7 @@
 package com.example.zadscraper;
 
 import org.apache.commons.lang3.*;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.text.*;
@@ -11,13 +12,12 @@ import java.util.*;
  * Copyright 2019 by Star Finanz-Software Entwicklungs und Vertriebs GmbH
  * Created on 2019-02-11
  */
-public class Main {
 
-	public static void main(String[] args) throws IOException {
-		new Main();
-	}
+//
+@Component
+public class BafinData {
 
-	public Main() throws IOException {
+	public List start() throws IOException {
 
 		List<BafinCompanyPageData> results = new ArrayList<BafinCompanyPageData>();
 		BafinCompanyPageScraper companyPageScraper = new BafinCompanyPageScraper();
@@ -33,8 +33,8 @@ public class Main {
 
 		List<String> lines = BafinCompanyPageDataToCSVAdapter.adaptToLines(results);
 
-		CSVWriter csvWriter = new CSVWriter();
-		csvWriter.writeFile("output.csv", lines);
+		return lines;
+
 	}
 
 }

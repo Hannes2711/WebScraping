@@ -1,8 +1,9 @@
 package com.example.zadrestservice.controller;
-
-import com.example.zadrestservice.dto.*;
+import com.example.zadscraper.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -13,16 +14,18 @@ import java.util.*;
 @Controller
 public class BafinController {
 
-	public List<BafinCompany> getCompanies() {
-		List<BafinCompany> list = new ArrayList<>();
-		int max = (int) (Math.random()*10);
+	@Autowired
+	private BafinData bafinData;
 
-		for (int i=0; i < max; i++) {
-			BafinCompany test = new BafinCompany("Company - " + (i+1), UUID.randomUUID().toString(), UUID.randomUUID().toString());
-			list.add(test);
+	public List getCompanies() {
+		List liste = new ArrayList();
+
+		try {liste =  bafinData.start(); }
+		catch(IOException e){
+			System.out.print("Fehler: "+e.getMessage());
 		}
 
-		return list;
-	}
+		return liste;
 
+		}
 }

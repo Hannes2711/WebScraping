@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ZadRestServiceApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(ZadRestServiceApplication.class, args);
 	}
 

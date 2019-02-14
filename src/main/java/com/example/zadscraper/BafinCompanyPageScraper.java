@@ -14,6 +14,9 @@ import java.util.*;
  * Copyright 2019 by Star Finanz-Software Entwicklungs und Vertriebs GmbH
  * Created on 2019-02-11
  */
+
+// Sucht Name, K-Datum und Z-Datum von der Webseite
+
 public class BafinCompanyPageScraper {
 
 	private static String KONTOINFORMATIONSDIENSTE = "Kontoinformationsdienste";
