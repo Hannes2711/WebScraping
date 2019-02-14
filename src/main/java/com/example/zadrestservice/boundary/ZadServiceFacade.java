@@ -21,24 +21,5 @@ public class ZadServiceFacade {
 	@RequestMapping("/zadcompanies")
 	public List<BafinCompany> greeting() {
 		return controller.getCompanies();
-
 	}
-
-	/*
-	@RequestMapping("/zeigeschoeneListe") {
-		public String readable(){
-			List liste = greeting();
-
-			for (BafinCompany bc: liste) {
-				bc.getName();
-				bc.getKtoDatum();
-				bc.getZadDatum();
-
-				String printline = companyName +
-
-			}
-		}
-	}
-	*/
-
 }
