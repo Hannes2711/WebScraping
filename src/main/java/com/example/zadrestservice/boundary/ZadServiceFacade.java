@@ -15,11 +15,11 @@ import java.util.*;
 @RestController
 public class ZadServiceFacade {
 
-	@Autowired
-	private BafinController controller;
+  @Autowired
+  private BafinController controller;
 
-	@RequestMapping("/zadcompanies")
-	public List<BafinCompany> greeting() {
-		return controller.getCompanies();
-	}
+  @RequestMapping("/zadcompanies")
+  public List<BafinCompany> greeting() {
+    return controller.getCompanies();
+  }
 }
