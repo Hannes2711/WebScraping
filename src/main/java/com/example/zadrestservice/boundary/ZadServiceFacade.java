@@ -20,12 +20,14 @@ public class ZadServiceFacade {
   private BafinController controller;
 
   @RequestMapping("/zadcompanies")
-  public List<BafinCompanyPageData> getCompanies(@RequestParam(value = "withdate", defaultValue = "false") String withdate) {
+  public List<BafinCompanyPageData> getCompanies(@RequestParam(value = "withdate", defaultValue = "false") String withdate,
+                                                 @RequestParam(value = "nameFilter", defaultValue = "") String nameFilter) {
 
+    System.out.println("nameFilter = " + nameFilter);
     System.out.println("withdate = " + withdate);
     boolean withDateB = Boolean.parseBoolean(withdate);
 
-    return controller.getCompanies(withDateB);
+    return controller.getCompanies(withDateB, nameFilter);
   }
 
 }
