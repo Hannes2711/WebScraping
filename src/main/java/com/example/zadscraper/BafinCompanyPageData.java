@@ -1,5 +1,8 @@
 package com.example.zadscraper;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.*;
 
 /**
@@ -13,7 +16,15 @@ import java.util.*;
 public class BafinCompanyPageData {
 
 	private String companyName = null;
+
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	@JsonFormat
+					(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
 	private Date kontoinformationsdiensteDate = null;
+
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	@JsonFormat
+					(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
 	private Date zahlungsausloesediensteDate = null;
 
 	public BafinCompanyPageData(String companyName, Date kontoinformationsdiensteDate, Date zahlungsauslösediensteDate) {

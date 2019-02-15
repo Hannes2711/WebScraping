@@ -2,6 +2,7 @@ package com.example.zadrestservice.controller;
 import com.example.zadscraper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
+import com.example.zadscraper.BafinData;
 
 import java.io.IOException;
 import java.util.*;
@@ -17,13 +18,18 @@ public class BafinController {
 	@Autowired
 	private BafinData bafinData;
 
-	public List getCompanies() {
-		List liste = new ArrayList();
+	public List<BafinCompanyPageData> getCompanies(boolean withDate) {
+		List<BafinCompanyPageData> liste = new ArrayList<>();
 
 		try {liste =  bafinData.start(); }
 		catch(IOException e){
 			System.out.print("Fehler: "+e.getMessage());
 		}
+
+		// filtering
+		liste = BafinCompanyPageDataToCSVAdapter2.filter(BafinData.start().results);
+
+		System.out.println("Company list contains <"+ liste.size()+"> elements.");
 
 		return liste;
 

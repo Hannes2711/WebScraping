@@ -1,6 +1,7 @@
 package com.example.zadscraper;
 
 import org.apache.commons.lang3.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -31,10 +32,7 @@ public class BafinData {
 			results.add(companyPageScraper.scrapeCompanyPage(companyUrl));
 		}
 
-		List<String> lines = BafinCompanyPageDataToCSVAdapter.adaptToLines(results);
-
-		return lines;
-
+		return results;
 	}
 
 }
