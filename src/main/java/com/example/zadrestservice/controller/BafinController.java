@@ -19,19 +19,28 @@ public class BafinController {
 	private BafinData bafinData;
 
 	public List<BafinCompanyPageData> getCompanies(boolean withDate) {
-		List<BafinCompanyPageData> liste = new ArrayList<>();
 
-		try {liste =  bafinData.start(); }
-		catch(IOException e){
-			System.out.print("Fehler: "+e.getMessage());
+		List<BafinCompanyPageData> liste = new ArrayList<>();
+		List<BafinCompanyPageData> filteredList = null;
+
+		try {
+			liste = bafinData.start();
+		} catch (IOException e) {
+			System.out.print("Fehler: " + e.getMessage());
 		}
 
 		// filtering
-		liste = BafinCompanyPageDataToCSVAdapter2.filter(BafinData.start().results);
+		if (withDate == true) {
 
-		System.out.println("Company list contains <"+ liste.size()+"> elements.");
 
-		return liste;
+			filteredList = BafinCompanyPageDataToCSVAdapter2.filter(liste);
+			System.out.println("Company list contains <" + filteredList.size() + "> elements.");
 
+			return filteredList;
+		}else {
+
+			return liste;
 		}
+
+	}
 }
