@@ -11,7 +11,7 @@ public class BafinCompanyNameFilter {
     List<BafinCompanyPageData> result = new ArrayList<>();
 
     for (BafinCompanyPageData data : lines) {
-      if (StringUtils.containsIgnoreCase(data.getCompanyName(), nameFilter)) {
+      if (StringUtils.containsIgnoreCase(data.getCompanyName(), nameFilter)) {      // startsWithIgnoreCase, containsIgnoreCase
         result.add(data);
       }
     }
@@ -19,4 +19,3 @@ public class BafinCompanyNameFilter {
     return result;
   }
 }
-
